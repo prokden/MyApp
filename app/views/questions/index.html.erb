@@ -1,4 +1,4 @@
-<h1>Questions</h1>
+<h1>Список вопросов</h1>
 
 <% @questions.each do |question| %>
   <h2><%= question.title %></h2>
@@ -8,6 +8,8 @@
   </time>
 
   <p>
-  <%= question.body %>
+    <%= question.body %>
+    <br>
+    <%= link_to 'Редактировать', edit_question_path(question) %>
   </p>
 <% end %>
