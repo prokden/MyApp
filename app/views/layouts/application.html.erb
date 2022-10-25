@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="utf-8">
+    <meta charset="utf-8">
     <title>MyApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><%= link_to 'Главная', root_path %></li>  
-        <li><%= link_to 'Вопросы', questions_path %></li>
-      </ul> 
-    </nav>
-    <main>
+    <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-8">
+            <li><%= link_to 'Главная', root_path, class: 'nav-link px-2 text-white' %></li>  
+            <li><%= link_to 'Вопросы', questions_path, class: 'nav-link px-2 text-white' %></li>
+          </ul> 
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mt-4">
       <%= yield %>
     </main>
   </body>

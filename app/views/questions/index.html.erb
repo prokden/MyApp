@@ -1,17 +1,24 @@
-<h1>Список вопросов</h1>
+<h1 class="mb-4">Список вопросов</h1>
 
 <% @questions.each do |question| %>
-  <h2><%= question.title %></h2>
+  <article class="card">
+    <div class="card-body">
+      <h2><%= question.title %></h2>
 
-  <time datetime="<%= question.formatted_created_at %>">
-    <%= question.formatted_created_at %>
-  </time>
+      <section class="card-text">
+        <time datetime="<%= question.formatted_created_at %>">
+          <small><%= question.formatted_created_at %></small>
+        </time>
 
-  <p>
-    <%= question.body %>
-    <br>
-    <%= link_to 'Данные', question_path(question) %> |
-    <%= link_to 'Редактировать', edit_question_path(question) %> |
-    <%= link_to 'Удалить', question_path(question), data: {method: :delete, confirm: 'Уверен?'} %>
-  </p>
+        <p>
+          <%= question.body %>
+        </p>
+      </section>
+
+    
+      <%= link_to 'Данные', question_path(question), class: 'btn btn-secondary' %> |
+      <%= link_to 'Редактировать', edit_question_path(question), class: 'btn btn-secondary'  %> |
+      <%= link_to 'Удалить', question_path(question), class: 'btn btn-danger', data: {method: :delete, confirm: 'Уверен?'} %>
+    </div>
+  </article>
 <% end %>
