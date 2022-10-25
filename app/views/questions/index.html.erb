@@ -1,7 +1,9 @@
 <h1 class="mb-4">Список вопросов</h1>
 
+<%= link_to 'Новый вопрос', new_question_path, class: 'btn btn-secondary btn-lg'%>
+
 <% @questions.each do |question| %>
-  <article class="card">
+  <article class="card mt-3">
     <div class="card-body">
       <h2><%= question.title %></h2>
 
@@ -16,8 +18,8 @@
       </section>
 
     
-      <%= link_to 'Данные', question_path(question), class: 'btn btn-secondary' %> |
-      <%= link_to 'Редактировать', edit_question_path(question), class: 'btn btn-secondary'  %> |
+      <%= link_to 'Данные', question_path(question), class: 'btn btn-secondary' %> 
+      <%= link_to 'Редактировать', edit_question_path(question), class: 'btn btn-secondary'  %> 
       <%= link_to 'Удалить', question_path(question), class: 'btn btn-danger', data: {method: :delete, confirm: 'Уверен?'} %>
     </div>
   </article>

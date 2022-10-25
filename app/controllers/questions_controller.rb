@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  
   def show
     @question = Question.find_by id: params[:id]
   end
@@ -6,6 +7,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find_by id: params[:id]
     @question.destroy
+    flash[:success] = "Вопрос удален!"
     redirect_to questions_path
   end
 
@@ -16,6 +18,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find_by id: params[:id]
     if @question.update question_params
+      flash[:success] = "Вопрос обновлен!"
       redirect_to questions_path
     else
       render :edit
@@ -33,6 +36,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new question_params
     if @question.save
+      flash[:success] = "Вопрос добавлен!"
       redirect_to questions_path
     else
       render :new
